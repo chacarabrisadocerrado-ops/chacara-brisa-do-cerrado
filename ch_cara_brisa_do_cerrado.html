@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chácara Brisa do Cerrado | Onde o tempo desacelera</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cerrado: {
+                            50: '#FBF9F5',
+                            100: '#F3EFE6',
+                            200: '#E6DFC9',
+                            600: '#8A7A59',
+                            700: '#5C523B',
+                            800: '#3D3627',
+                            900: '#262218',
+                        },
+                        earth: {
+                            DEFAULT: '#B85D33',
+                            dark: '#944723'
+                        },
+                        sunset: {
+                            gold: '#D4AF37',
+                            light: '#F4E8C1'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        .hero-bg {
+            background: linear-gradient(rgba(38, 34, 24, 0.55), rgba(38, 34, 24, 0.65)), url('https://placehold.co/1920x1080/262218/E6DFC9?text=Chácara+Brisa+do+Cerrado') center/cover no-repeat;
+        }
+    </style>
+</head>
+<body class="bg-cerrado-50 text-cerrado-900 antialiased selection:bg-sunset-gold selection:text-cerrado-900">
+
+    <!-- Notificação Flutuante customizada (substitui alert) -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-cerrado-900 text-cerrado-50 px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3 border border-sunset-gold/30">
+        <i class="fa-solid fa-circle-check text-sunset-gold text-xl"></i>
+        <div>
+            <h4 class="font-bold text-sm">Mensagem</h4>
+            <p id="toast-msg" class="text-xs text-cerrado-200">Ação realizada com sucesso.</p>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-cerrado-900/90 backdrop-blur-md border-b border-cerrado-800 text-cerrado-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2 group">
+                <div class="w-10 h-10 rounded-full bg-sunset-gold/20 flex items-center justify-center border border-sunset-gold/50 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-seedling text-sunset-gold"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-lg font-bold tracking-wide block leading-tight text-sunset-light">Brisa do Cerrado</span>
+                    <span class="text-[10px] uppercase tracking-widest text-cerrado-200 block">Planaltina • GO</span>
+                </div>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#sobre" class="hover:text-sunset-gold transition-colors">Sobre</a>
+                <a href="#estrutura" class="hover:text-sunset-gold transition-colors">Estrutura & Lazer</a>
+                <a href="#valores" class="hover:text-sunset-gold transition-colors">Valores & Reservas</a>
+                <a href="#galeria" class="hover:text-sunset-gold transition-colors">Galeria</a>
+                <a href="#contato" class="hover:text-sunset-gold transition-colors">Localização</a>
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://wa.me/5561992683212?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Chácara%20Brisa%20do%20Cerrado." target="_blank" class="bg-earth hover:bg-earth-dark text-white px-5 py-2.5 rounded-full text-sm font-medium shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Reservar via WhatsApp</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-cerrado-50 focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cerrado-900 border-b border-cerrado-800 px-6 py-6 space-y-4">
+            <a href="#sobre" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Sobre</a>
+            <a href="#estrutura" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Estrutura & Lazer</a>
+            <a href="#valores" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Valores & Reservas</a>
+            <a href="#galeria" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Galeria</a>
+            <a href="#contato" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Localização & Contato</a>
+            <div class="pt-4 border-t border-cerrado-800">
+                <a href="https://wa.me/5561992683212?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Chácara%20Brisa%20do%20Cerrado." target="_blank" class="w-full bg-earth text-white py-3 rounded-xl font-medium flex items-center justify-center space-x-2 shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Reservar via WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center hero-bg text-center px-4 pt-20">
+        <div class="max-w-4xl mx-auto space-y-6 z-10 py-20">
+            <div class="inline-flex items-center space-x-2 bg-cerrado-900/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-sunset-gold/40 text-sunset-light text-xs sm:text-sm tracking-wider uppercase">
+                <i class="fa-solid fa-location-dot text-sunset-gold"></i>
+                <span>Planaltina, GO • 15°27'S • 47°36'W</span>
+            </div>
+            <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-cerrado-50 tracking-tight leading-none drop-shadow-md">
+                Chácara Brisa do Cerrado
+            </h1>
+            <p class="font-serif italic text-xl sm:text-2xl text-sunset-light max-w-2xl mx-auto font-light drop-shadow">
+                "Onde o tempo desacelera."
+            </p>
+            <p class="text-cerrado-200 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
+                Um refúgio exclusivo de paz e natureza em Planaltina. O lugar perfeito para conectar-se com quem você ama, celebrar momentos inesquecíveis ou simplesmente respirar ar puro.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="https://wa.me/5561992683212?text=Olá!%20Gostaria%20de%20verificar%20a%20disponibilidade%20para%20locação%20da%20Chácara%20Brisa%20do%20Cerrado." target="_blank" class="w-full sm:w-auto bg-earth hover:bg-earth-dark text-white px-8 py-4 rounded-full font-medium shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-3 text-base">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Falar no WhatsApp (61) 99268-3212</span>
+                </a>
+                <a href="#estrutura" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-cerrado-50 border border-white/20 px-8 py-4 rounded-full font-medium transition-all flex items-center justify-center space-x-2 text-base">
+                    <span>Conhecer Estrutura</span>
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Absolute decorative bottom fade -->
+        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-cerrado-50 to-transparent"></div>
+    </section>
+
+    <!-- Sobre a Chácara -->
+    <section id="sobre" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div class="space-y-6">
+                <div class="inline-block text-earth font-semibold text-xs tracking-widest uppercase bg-earth/10 px-3 py-1 rounded-md">
+                    O Refúgio Perfeito
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cerrado-900 leading-tight">
+                    Um santuário verde bem perto de você.
+                </h2>
+                <p class="text-cerrado-700 leading-relaxed font-light text-base sm:text-lg">
+                    Localizada na região privilegiada de Planaltina, GO, a <strong>Chácara Brisa do Cerrado</strong> foi planejada para oferecer um ambiente calmo, sofisticado e integrado com a fauna e flora nativa. 
+                </p>
+                <p class="text-cerrado-700 leading-relaxed font-light text-sm sm:text-base">
+                    Aqui, o ritmo caótico da cidade dá lugar ao canto dos pássaros, ao som da brisa mansa nas copas das árvores e a banhos revigorantes de sol. Ideal para encontros familiares, aniversários, confraternizações ou um dia de descanso revigorante.
+                </p>
+                <div class="grid grid-cols-2 gap-6 pt-4 border-t border-cerrado-200">
+                    <div>
+                        <span class="block font-serif text-3xl font-bold text-earth">100%</span>
+                        <span class="text-xs uppercase tracking-wider text-cerrado-600 font-medium">Privacidade & Conforto</span>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-3xl font-bold text-earth">09h - 18h</span>
+                        <span class="text-xs uppercase tracking-wider text-cerrado-600 font-medium">Horário Padrão Diária</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3]">
+                    <img src="https://placehold.co/800x600/E6DFC9/3D3627?text=Natureza+e+Paz+no+Cerrado" alt="Paisagem da Chácara" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600?text=Chácara+Brisa'">
+                </div>
+                <!-- Floating badge -->
+                <div class="absolute -bottom-6 -left-6 bg-cerrado-900 text-cerrado-50 p-6 rounded-2xl shadow-xl hidden sm:block border border-sunset-gold/30 max-w-xs">
+                    <div class="flex items-center space-x-3">
+                        <div class="text-sunset-gold text-3xl"><i class="fa-solid fa-quote-left"></i></div>
+                        <p class="text-xs italic text-cerrado-200">"Um oásis de tranquilidade onde cada pôr do sol é um espetáculo único."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estrutura e Lazer -->
+    <section id="estrutura" class="py-24 bg-cerrado-100/70 border-y border-cerrado-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-block text-earth font-semibold text-xs tracking-widest uppercase bg-earth/10 px-3 py-1 rounded-md">
+                    Comodidades & Lazer
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cerrado-900">
+                    Tudo o que você precisa para momentos inesquecíveis
+                </h2>
+                <p class="text-cerrado-700 font-light text-base">
+                    Nossa chácara conta com infraestrutura completa para garantir o conforto e a diversão de seus convidados ou familiares.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-cerrado-50 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-cerrado-200 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-xl bg-earth/10 flex items-center justify-center text-earth text-2xl group-hover:bg-earth group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-water-ladder"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-cerrado-900">Área de Lazer & Piscina</h3>
+                        <p class="text-cerrado-700 text-sm font-light leading-relaxed">
+                            Piscina ampla e convidativa para os dias ensolarados, cercada por espaço de descanso ao ar livre.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-cerrado-200 text-xs text-earth font-semibold tracking-wide uppercase flex items-center">
+                        <span>Lazer garantido</span>
+                        <i class="fa-solid fa-arrow-right ml-auto"></i>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-cerrado-50 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-cerrado-200 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-xl bg-earth/10 flex items-center justify-center text-earth text-2xl group-hover:bg-earth group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-fire-burner"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-cerrado-900">Churrasqueira Gourmet</h3>
+                        <p class="text-cerrado-700 text-sm font-light leading-relaxed">
+                            Espaço equipado com churrasqueira, pias e bancadas, ideal para preparar aquele churrasco especial em turma.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-cerrado-200 text-xs text-earth font-semibold tracking-wide uppercase flex items-center">
+                        <span>Gastronomia</span>
+                        <i class="fa-solid fa-arrow-right ml-auto"></i>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-cerrado-50 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-cerrado-200 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-xl bg-earth/10 flex items-center justify-center text-earth text-2xl group-hover:bg-earth group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-tree"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-cerrado-900">Natureza & Verde</h3>
+                        <p class="text-cerrado-700 text-sm font-light leading-relaxed">
+                            Ampla área verde preservada, jardins bem cuidados e sombras refrescantes características do cerrado goiano.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-cerrado-200 text-xs text-earth font-semibold tracking-wide uppercase flex items-center">
+                        <span>Paz absoluta</span>
+                        <i class="fa-solid fa-arrow-right ml-auto"></i>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-cerrado-50 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-cerrado-200 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-xl bg-earth/10 flex items-center justify-center text-earth text-2xl group-hover:bg-earth group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-house-chimney-user"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-cerrado-900">Espaço para Eventos</h3>
+                        <p class="text-cerrado-700 text-sm font-light leading-relaxed">
+                            Ambiente versátil e agradável para reuniões familiares, aniversários, confraternizações e momentos festivos.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-cerrado-200 text-xs text-earth font-semibold tracking-wide uppercase flex items-center">
+                        <span>Celebrações</span>
+                        <i class="fa-solid fa-arrow-right ml-auto"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informações e Valores -->
+    <section id="valores" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-cerrado-900 text-cerrado-50 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl border border-sunset-gold/20">
+            <!-- Decorative background glow -->
+            <div class="absolute -right-20 -top-20 w-96 h-96 bg-earth/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="space-y-6">
+                    <div class="inline-block text-sunset-gold font-semibold text-xs tracking-widest uppercase bg-sunset-gold/10 px-3 py-1 rounded-md border border-sunset-gold/20">
+                        Condições de Locação
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cerrado-50">
+                        Garanta seu dia de descanso e lazer
+                    </h2>
+                    <p class="text-cerrado-200 font-light text-base leading-relaxed">
+                        Trabalhamos com locação diária para eventos e descanso. Desfrute de toda a estrutura com exclusividade para o seu grupo.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-clock text-sunset-gold mt-1"></i>
+                            <div>
+                                <span class="font-semibold block text-cerrado-50">Horário de Funcionamento</span>
+                                <span class="text-cerrado-200 text-sm">Das 09h às 18h</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-phone text-sunset-gold mt-1"></i>
+                            <div>
+                                <span class="font-semibold block text-cerrado-50">Contatos Oficiais</span>
+                                <span class="text-cerrado-200 text-sm block">(61) 99268-3212 / (61) 99251-9846</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Card -->
+                <div class="bg-cerrado-800/80 backdrop-blur-md rounded-2xl p-8 sm:p-10 border border-cerrado-700 text-center space-y-6 shadow-xl">
+                    <div class="space-y-2">
+                        <span class="text-xs uppercase tracking-widest text-sunset-gold font-semibold block">Locação Diária</span>
+                        <div class="flex items-baseline justify-center space-x-1">
+                            <span class="text-2xl font-serif text-cerrado-300">R$</span>
+                            <span class="text-5xl sm:text-6xl font-serif font-bold text-cerrado-50">700,00</span>
+                        </div>
+                        <span class="text-xs text-cerrado-300 block pt-1">Período das 09h às 18h</span>
+                    </div>
+
+                    <ul class="text-left space-y-3 py-4 border-y border-cerrado-700 text-sm text-cerrado-200">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-sunset-gold"></i>
+                            <span>Uso exclusivo da área de lazer e piscina</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-sunset-gold"></i>
+                            <span>Acesso à churrasqueira e estrutura completa</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-sunset-gold"></i>
+                            <span>Ambiente reservado e em contato com a natureza</span>
+                        </li>
+                    </ul>
+
+                    <div class="space-y-3">
+                        <a href="https://wa.me/5561992683212?text=Olá!%20Gostaria%20de%20reservar%20a%20diária%20da%20Chácara%20Brisa%20do%20Cerrado%20por%20R$%20700,00." target="_blank" class="w-full bg-earth hover:bg-earth-dark text-white py-4 rounded-xl font-medium transition-all shadow-lg flex items-center justify-center space-x-2 text-base">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Reservar pelo WhatsApp</span>
+                        </a>
+                        <p class="text-[11px] text-cerrado-300">Consulte disponibilidade para datas comemorativas e feriados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Fotos / Atmosfera -->
+    <section id="galeria" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <div class="inline-block text-earth font-semibold text-xs tracking-widest uppercase bg-earth/10 px-3 py-1 rounded-md">
+                Galeria de Atmosfera
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cerrado-900">
+                Encante-se com cada detalhe
+            </h2>
+            <p class="text-cerrado-700 font-light text-base">
+                Um vislumbre do que aguarda por você e sua família na Chácara Brisa do Cerrado.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
+                <img src="https://placehold.co/600x450/E6DFC9/3D3627?text=Área+da+Piscina" alt="Piscina" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Piscina'">
+                <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                    <span class="text-white font-serif font-medium text-lg">Piscina e Deck</span>
+                </div>
+            </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
+                <img src="https://placehold.co/600x450/D4AF37/262218?text=Churrasqueira+Gourmet" alt="Churrasqueira" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Churrasqueira'">
+                <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                    <span class="text-white font-serif font-medium text-lg">Área de Churrasco</span>
+                </div>
+            </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
+                <img src="https://placehold.co/600x450/8A7A59/F3EFE6?text=Natureza+e+Verde" alt="Natureza" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Natureza'">
+                <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                    <span class="text-white font-serif font-medium text-lg">Jardins e Paisagem</span>
+                </div>
+            </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
+                <img src="https://placehold.co/600x450/5C523B/E6DFC9?text=Espaço+de+Convivência" alt="Convivência" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Convivencia'">
+                <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                    <span class="text-white font-serif font-medium text-lg">Espaço de Convivência</span>
+                </div>
+            </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
+                <img src="https://placehold.co/600x450/3D3627/F4E8C1?text=Pôr+do+Sol+no+Cerrado" alt="Pôr do Sol" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Por+do+Sol'">
+                <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                    <span class="text-white font-serif font-medium text-lg">Pôr do Sol Inigualável</span>
+                </div>
+            </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
+                <img src="https://placehold.co/600x450/B85D33/F3EFE6?text=Tranquilidade+Total" alt="Tranquilidade" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Tranquilidade'">
+                <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                    <span class="text-white font-serif font-medium text-lg">Silêncio e Paz</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização & Contato -->
+    <section id="contato" class="py-24 bg-cerrado-100/70 border-t border-cerrado-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Informações de Contato & Mapa simulado -->
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <div class="inline-block text-earth font-semibold text-xs tracking-widest uppercase bg-earth/10 px-3 py-1 rounded-md">
+                            Onde Estamos
+                        </div>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cerrado-900">
+                            Venha nos visitar em Planaltina, GO
+                        </h2>
+                        <p class="text-cerrado-700 font-light text-base">
+                            Localização privilegiada com fácil acesso. Entre em contato para receber a rota detalhada e verificar a agenda.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4 bg-cerrado-50 p-4 rounded-xl border border-cerrado-200 shadow-sm">
+                            <div class="w-12 h-12 rounded-lg bg-earth/10 text-earth flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase text-cerrado-600 font-semibold block">Endereço & Coordenadas</span>
+                                <span class="text-cerrado-900 font-medium text-sm">Planaltina, GO • Coordenadas: 15°27'S • 47°36'W</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 bg-cerrado-50 p-4 rounded-xl border border-cerrado-200 shadow-sm">
+                            <div class="w-12 h-12 rounded-lg bg-earth/10 text-earth flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase text-cerrado-600 font-semibold block">Telefones para Contato</span>
+                                <span class="text-cerrado-900 font-medium text-sm">(61) 99268-3212 / (61) 99251-9846</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulação de Mapa Interativo -->
+                    <div class="rounded-2xl overflow-hidden border border-cerrado-300 shadow-md h-64 bg-cerrado-200 relative flex items-center justify-center text-center p-6">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://placehold.co/800x400/8A7A59/F3EFE6?text=Mapa+Planaltina+GO')"></div>
+                        <div class="relative z-10 bg-cerrado-900/90 text-cerrado-50 p-6 rounded-xl border border-sunset-gold/30 max-w-sm space-y-3">
+                            <i class="fa-solid fa-map-location-dot text-sunset-gold text-3xl"></i>
+                            <h4 class="font-serif font-bold text-lg">Chácara Brisa do Cerrado</h4>
+                            <p class="text-xs text-cerrado-200">Planaltina - GO (15°27'S • 47°36'W)</p>
+                            <a href="https://maps.google.com/?q=Planaltina+GO" target="_blank" class="inline-block bg-sunset-gold text-cerrado-900 font-semibold px-4 py-2 rounded-lg text-xs hover:bg-sunset-light transition-colors">
+                                Abrir no Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Contato Rápido -->
+                <div class="bg-cerrado-50 rounded-3xl p-8 sm:p-10 border border-cerrado-200 shadow-xl flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div class="space-y-2">
+                            <h3 class="font-serif text-2xl font-bold text-cerrado-900">Envie uma Mensagem</h3>
+                            <p class="text-cerrado-700 text-sm font-light">Preencha os campos abaixo e entraremos em contato rapidamente.</p>
+                        </div>
+
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label class="block text-xs uppercase font-semibold text-cerrado-700 mb-1">Seu Nome</label>
+                                <input type="text" id="nome" required class="w-full bg-white border border-cerrado-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-earth transition-colors" placeholder="Ex: Maria Clara">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase font-semibold text-cerrado-700 mb-1">WhatsApp / Telefone</label>
+                                <input type="tel" id="telefone" required class="w-full bg-white border border-cerrado-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-earth transition-colors" placeholder="Ex: (61) 99999-9999">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase font-semibold text-cerrado-700 mb-1">Data Pretendida & Mensagem</label>
+                                <textarea id="mensagem" rows="4" required class="w-full bg-white border border-cerrado-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-earth transition-colors resize-none" placeholder="Gostaria de verificar disponibilidade para a data..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-earth hover:bg-earth-dark text-white font-medium py-3.5 rounded-xl transition-all shadow-lg flex items-center justify-center space-x-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Enviar Mensagem via WhatsApp</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cerrado-900 text-cerrado-300 py-12 border-t border-cerrado-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="space-y-1">
+                <span class="font-serif text-lg font-bold text-sunset-light">Chácara Brisa do Cerrado</span>
+                <p class="text-xs text-cerrado-400">Onde o tempo desacelera. Planaltina, GO.</p>
+            </div>
+            <div class="flex items-center space-x-6 text-sm">
+                <a href="#sobre" class="hover:text-sunset-gold transition-colors">Sobre</a>
+                <a href="#estrutura" class="hover:text-sunset-gold transition-colors">Estrutura</a>
+                <a href="#valores" class="hover:text-sunset-gold transition-colors">Valores</a>
+                <a href="#contato" class="hover:text-sunset-gold transition-colors">Contato</a>
+            </div>
+            <div class="text-xs text-cerrado-400">
+                &copy; 2026 Chácara Brisa do Cerrado. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interativo -->
+    <script>
+        // Menu Mobile Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-xl', 'bg-cerrado-900/95');
+            } else {
+                navbar.classList.remove('shadow-xl');
+            }
+        });
+
+        // Função Toast customizada (sem alert)
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toast.querySelector('h4').textContent = title;
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4000);
+        }
+
+        // Formulário de contato enviando direto para o WhatsApp
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            const textoWhatsApp = `Olá! Meu nome é ${nome} (Tel: ${telefone}). ${mensagem}`;
+            const urlWhatsApp = `https://wa.me/5561992683212?text=${encodeURIComponent(textoWhatsApp)}`;
+
+            showToast('Redirecionando...', 'Abrindo o WhatsApp com sua mensagem formatada.');
+            setTimeout(() => {
+                window.open(urlWhatsApp, '_blank');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
