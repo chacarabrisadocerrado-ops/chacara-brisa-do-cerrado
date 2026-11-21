@@ -45,13 +45,13 @@
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
         .hero-bg {
-            background: linear-gradient(rgba(38, 34, 24, 0.55), rgba(38, 34, 24, 0.65)), url('https://placehold.co/1920x1080/262218/E6DFC9?text=Chácara+Brisa+do+Cerrado') center/cover no-repeat;
+            background: linear-gradient(rgba(38, 34, 24, 0.55), rgba(38, 34, 24, 0.65)), url('areadapiscina.jpeg') center/cover no-repeat;
         }
     </style>
 </head>
 <body class="bg-cerrado-50 text-cerrado-900 antialiased selection:bg-sunset-gold selection:text-cerrado-900">
 
-    <!-- Notificação Flutuante customizada (substitui alert) -->
+    <!-- Notificação Flutuante customizada -->
     <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-cerrado-900 text-cerrado-50 px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3 border border-sunset-gold/30">
         <i class="fa-solid fa-circle-check text-sunset-gold text-xl"></i>
         <div>
@@ -74,10 +74,11 @@
             </a>
 
             <!-- Menu Desktop -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+            <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
                 <a href="#sobre" class="hover:text-sunset-gold transition-colors">Sobre</a>
-                <a href="#estrutura" class="hover:text-sunset-gold transition-colors">Estrutura & Lazer</a>
-                <a href="#valores" class="hover:text-sunset-gold transition-colors">Valores & Reservas</a>
+                <a href="#estrutura" class="hover:text-sunset-gold transition-colors">Estrutura</a>
+                <a href="#valores" class="hover:text-sunset-gold transition-colors">Valores</a>
+                <a href="#regras" class="hover:text-sunset-gold transition-colors">Regras</a>
                 <a href="#galeria" class="hover:text-sunset-gold transition-colors">Galeria</a>
                 <a href="#contato" class="hover:text-sunset-gold transition-colors">Localização</a>
             </nav>
@@ -100,6 +101,7 @@
             <a href="#sobre" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Sobre</a>
             <a href="#estrutura" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Estrutura & Lazer</a>
             <a href="#valores" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Valores & Reservas</a>
+            <a href="#regras" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Regras de Utilização</a>
             <a href="#galeria" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Galeria</a>
             <a href="#contato" class="block text-cerrado-50 hover:text-sunset-gold font-medium mobile-link">Localização & Contato</a>
             <div class="pt-4 border-t border-cerrado-800">
@@ -116,13 +118,13 @@
         <div class="max-w-4xl mx-auto space-y-6 z-10 py-20">
             <div class="inline-flex items-center space-x-2 bg-cerrado-900/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-sunset-gold/40 text-sunset-light text-xs sm:text-sm tracking-wider uppercase">
                 <i class="fa-solid fa-location-dot text-sunset-gold"></i>
-                <span>Planaltina, GO • 15°27'S • 47°36'W</span>
+                <span>Planaltina, GO • Mod 09 A, Chácara 174</span>
             </div>
             <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-cerrado-50 tracking-tight leading-none drop-shadow-md">
                 Chácara Brisa do Cerrado
             </h1>
             <p class="font-serif italic text-xl sm:text-2xl text-sunset-light max-w-2xl mx-auto font-light drop-shadow">
-                "Onde o tempo desacelera."
+                "Lugar onde o tempo desacelera."
             </p>
             <p class="text-cerrado-200 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
                 Um refúgio exclusivo de paz e natureza em Planaltina. O lugar perfeito para conectar-se com quem você ama, celebrar momentos inesquecíveis ou simplesmente respirar ar puro.
@@ -153,7 +155,7 @@
                     Um santuário verde bem perto de você.
                 </h2>
                 <p class="text-cerrado-700 leading-relaxed font-light text-base sm:text-lg">
-                    Localizada na região privilegiada de Planaltina, GO, a <strong>Chácara Brisa do Cerrado</strong> foi planejada para oferecer um ambiente calmo, sofisticado e integrado com a fauna e flora nativa. 
+                    Localizada na região privilegiada de Planaltina, GO, a <strong>Chácara Brisa do Cerrado</strong> foi planejada para oferecer um ambiente calmo, sofisticado e integrado com a fauna e flora nativa.
                 </p>
                 <p class="text-cerrado-700 leading-relaxed font-light text-sm sm:text-base">
                     Aqui, o ritmo caótico da cidade dá lugar ao canto dos pássaros, ao som da brisa mansa nas copas das árvores e a banhos revigorantes de sol. Ideal para encontros familiares, aniversários, confraternizações ou um dia de descanso revigorante.
@@ -171,7 +173,7 @@
             </div>
             <div class="relative">
                 <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3]">
-                    <img src="https://placehold.co/800x600/E6DFC9/3D3627?text=Natureza+e+Paz+no+Cerrado" alt="Paisagem da Chácara" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600?text=Chácara+Brisa'">
+                    <img src="naturezaepaznocerrado.jpeg" alt="Vista aérea de natureza e paz na Chácara Brisa do Cerrado" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                 </div>
                 <!-- Floating badge -->
                 <div class="absolute -bottom-6 -left-6 bg-cerrado-900 text-cerrado-50 p-6 rounded-2xl shadow-xl hidden sm:block border border-sunset-gold/30 max-w-xs">
@@ -208,7 +210,7 @@
                         </div>
                         <h3 class="font-serif text-xl font-bold text-cerrado-900">Área de Lazer & Piscina</h3>
                         <p class="text-cerrado-700 text-sm font-light leading-relaxed">
-                            Piscina ampla e convidativa para os dias ensolarados, cercada por espaço de descanso ao ar livre.
+                            Piscina ampla e convidativa para os dias ensolarados, cercada por deck e espaço de descanso ao ar livre.
                         </p>
                     </div>
                     <div class="pt-6 mt-6 border-t border-cerrado-200 text-xs text-earth font-semibold tracking-wide uppercase flex items-center">
@@ -223,9 +225,9 @@
                         <div class="w-14 h-14 rounded-xl bg-earth/10 flex items-center justify-center text-earth text-2xl group-hover:bg-earth group-hover:text-white transition-colors">
                             <i class="fa-solid fa-fire-burner"></i>
                         </div>
-                        <h3 class="font-serif text-xl font-bold text-cerrado-900">Churrasqueira Gourmet</h3>
+                        <h3 class="font-serif text-xl font-bold text-cerrado-900">Área Gourmet</h3>
                         <p class="text-cerrado-700 text-sm font-light leading-relaxed">
-                            Espaço equipado com churrasqueira, pias e bancadas, ideal para preparar aquele churrasco especial em turma.
+                            Espaço coberto com churrasqueira, fogão a gás, refrigerador, mesa em granito com cadeiras, bistrô com banquetas e jogos de mesas.
                         </p>
                     </div>
                     <div class="pt-6 mt-6 border-t border-cerrado-200 text-xs text-earth font-semibold tracking-wide uppercase flex items-center">
@@ -313,7 +315,7 @@
                         <span class="text-xs uppercase tracking-widest text-sunset-gold font-semibold block">Locação Diária</span>
                         <div class="flex items-baseline justify-center space-x-1">
                             <span class="text-2xl font-serif text-cerrado-300">R$</span>
-                            <span class="text-5xl sm:text-6xl font-serif font-bold text-cerrado-50">700,00</span>
+                            <span class="text-5xl sm:text-6xl font-serif font-bold text-cerrado-50">600,00</span>
                         </div>
                         <span class="text-xs text-cerrado-300 block pt-1">Período das 09h às 18h</span>
                     </div>
@@ -325,7 +327,7 @@
                         </li>
                         <li class="flex items-center space-x-2">
                             <i class="fa-solid fa-check text-sunset-gold"></i>
-                            <span>Acesso à churrasqueira e estrutura completa</span>
+                            <span>Acesso à área gourmet e estrutura completa</span>
                         </li>
                         <li class="flex items-center space-x-2">
                             <i class="fa-solid fa-check text-sunset-gold"></i>
@@ -334,11 +336,82 @@
                     </ul>
 
                     <div class="space-y-3">
-                        <a href="https://wa.me/5561992683212?text=Olá!%20Gostaria%20de%20reservar%20a%20diária%20da%20Chácara%20Brisa%20do%20Cerrado%20por%20R$%20700,00." target="_blank" class="w-full bg-earth hover:bg-earth-dark text-white py-4 rounded-xl font-medium transition-all shadow-lg flex items-center justify-center space-x-2 text-base">
+                        <a href="https://wa.me/5561992683212?text=Olá!%20Gostaria%20de%20reservar%20a%20diária%20da%20Chácara%20Brisa%20do%20Cerrado%20por%20R$%20600,00." target="_blank" class="w-full bg-earth hover:bg-earth-dark text-white py-4 rounded-xl font-medium transition-all shadow-lg flex items-center justify-center space-x-2 text-base">
                             <i class="fa-brands fa-whatsapp text-xl"></i>
                             <span>Reservar pelo WhatsApp</span>
                         </a>
                         <p class="text-[11px] text-cerrado-300">Consulte disponibilidade para datas comemorativas e feriados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regras de Utilização e Convivência -->
+    <section id="regras" class="py-20 bg-cerrado-100/70 border-y border-cerrado-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-14">
+                <div class="inline-block text-earth font-semibold text-xs tracking-widest uppercase bg-earth/10 px-3 py-1 rounded-md">
+                    Boa Convivência
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cerrado-900">
+                    Regras de Utilização do Espaço
+                </h2>
+                <p class="text-cerrado-700 font-light text-base">
+                    Para garantir a tranquilidade, a segurança e a boa experiência de todos os visitantes e vizinhos, observe as diretrizes abaixo:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Regra 1: Som -->
+                <div class="bg-cerrado-50 p-6 sm:p-8 rounded-2xl border border-cerrado-200 shadow-sm flex items-start space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-earth/10 text-earth flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-volume-low"></i>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h3 class="font-serif text-lg font-bold text-cerrado-900">Política de Som e Horário</h3>
+                        <p class="text-cerrado-700 text-sm font-light leading-relaxed">
+                            É permitido som ambiente ou no máximo <strong>1 veículo com som automotivo</strong> em volume moderado, com encerramento obrigatório e impreterível às <strong>22h00</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Regra 2: Reserva -->
+                <div class="bg-cerrado-50 p-6 sm:p-8 rounded-2xl border border-cerrado-200 shadow-sm flex items-start space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-earth/10 text-earth flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h3 class="font-serif text-lg font-bold text-cerrado-900">Reserva e Sinal</h3>
+                        <p class="text-cerrado-700 text-sm font-light leading-relaxed">
+                            O agendamento é confirmado mediante o pagamento do sinal de reserva. Em caso de cancelamento ou desistência por parte do locatário, o valor do sinal <strong>não é reembolsável</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Regra 3: Limpeza -->
+                <div class="bg-cerrado-50 p-6 sm:p-8 rounded-2xl border border-cerrado-200 shadow-sm flex items-start space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-earth/10 text-earth flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-broom"></i>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h3 class="font-serif text-lg font-bold text-cerrado-900">Limpeza e Conservação</h3>
+                        <p class="text-cerrado-700 text-sm font-light leading-relaxed">
+                            O espaço deve ser devolvido organizado ou mediante pagamento da taxa de limpeza de <strong>R$ 100,00</strong>. Zelar pelo mobiliário (mesas, cadeiras, bistrôs e eletrodomésticos).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Regra 4: Condições Externas -->
+                <div class="bg-cerrado-50 p-6 sm:p-8 rounded-2xl border border-cerrado-200 shadow-sm flex items-start space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-earth/10 text-earth flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h3 class="font-serif text-lg font-bold text-cerrado-900">Fatores Climáticos e Energia</h3>
+                        <p class="text-cerrado-700 text-sm font-light leading-relaxed">
+                            A administração não se responsabiliza por alterações climáticas (chuvas, ventos) ou eventuais interrupções externas no fornecimento de energia elétrica durante o evento.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -361,39 +434,39 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
-                <img src="https://placehold.co/600x450/E6DFC9/3D3627?text=Área+da+Piscina" alt="Piscina" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Piscina'">
+                <img src="areadapiscina.jpeg" alt="Área da Piscina" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <span class="text-white font-serif font-medium text-lg">Piscina e Deck</span>
+                    <span class="text-white font-serif font-medium text-lg">Área da Piscina</span>
                 </div>
             </div>
             <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
-                <img src="https://placehold.co/600x450/D4AF37/262218?text=Churrasqueira+Gourmet" alt="Churrasqueira" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Churrasqueira'">
+                <img src="churrasqueiragourmet.jpeg" alt="Churrasqueira Gourmet" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <span class="text-white font-serif font-medium text-lg">Área de Churrasco</span>
+                    <span class="text-white font-serif font-medium text-lg">Área Gourmet e Churrasqueira</span>
                 </div>
             </div>
             <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
-                <img src="https://placehold.co/600x450/8A7A59/F3EFE6?text=Natureza+e+Verde" alt="Natureza" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Natureza'">
-                <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <span class="text-white font-serif font-medium text-lg">Jardins e Paisagem</span>
-                </div>
-            </div>
-            <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
-                <img src="https://placehold.co/600x450/5C523B/E6DFC9?text=Espaço+de+Convivência" alt="Convivência" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Convivencia'">
+                <img src="espacodeconvivencia.jpeg" alt="Espaço de Convivência" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                     <span class="text-white font-serif font-medium text-lg">Espaço de Convivência</span>
                 </div>
             </div>
             <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
-                <img src="https://placehold.co/600x450/3D3627/F4E8C1?text=Pôr+do+Sol+no+Cerrado" alt="Pôr do Sol" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Por+do+Sol'">
+                <img src="naturezaepaznocerrado.jpeg" alt="Natureza e Paz no Cerrado" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <span class="text-white font-serif font-medium text-lg">Pôr do Sol Inigualável</span>
+                    <span class="text-white font-serif font-medium text-lg">Natureza e Paz no Cerrado</span>
                 </div>
             </div>
             <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
-                <img src="https://placehold.co/600x450/B85D33/F3EFE6?text=Tranquilidade+Total" alt="Tranquilidade" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450?text=Tranquilidade'">
+                <img src="naturezaeverde.jpeg" alt="Natureza e Verde" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <span class="text-white font-serif font-medium text-lg">Silêncio e Paz</span>
+                    <span class="text-white font-serif font-medium text-lg">Natureza e Verde</span>
+                </div>
+            </div>
+            <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-cerrado-200">
+                <img src="pordosol.jpeg" alt="Pôr do Sol" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-cerrado-900/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                    <span class="text-white font-serif font-medium text-lg">Pôr do Sol</span>
                 </div>
             </div>
         </div>
@@ -403,7 +476,7 @@
     <section id="contato" class="py-24 bg-cerrado-100/70 border-t border-cerrado-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Informações de Contato & Mapa simulado -->
+                <!-- Informações de Contato & Mapa -->
                 <div class="space-y-8">
                     <div class="space-y-4">
                         <div class="inline-block text-earth font-semibold text-xs tracking-widest uppercase bg-earth/10 px-3 py-1 rounded-md">
@@ -423,8 +496,8 @@
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div>
-                                <span class="text-xs uppercase text-cerrado-600 font-semibold block">Endereço & Coordenadas</span>
-                                <span class="text-cerrado-900 font-medium text-sm">Planaltina, GO • Coordenadas: 15°27'S • 47°36'W</span>
+                                <span class="text-xs uppercase text-cerrado-600 font-semibold block">Endereço Completo</span>
+                                <span class="text-cerrado-900 font-medium text-sm">Mod 09 A, Chácara 174, Setor de Mansões Leste, Planaltina - GO</span>
                             </div>
                         </div>
 
@@ -439,17 +512,9 @@
                         </div>
                     </div>
 
-                    <!-- Simulação de Mapa Interativo -->
-                    <div class="rounded-2xl overflow-hidden border border-cerrado-300 shadow-md h-64 bg-cerrado-200 relative flex items-center justify-center text-center p-6">
-                        <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://placehold.co/800x400/8A7A59/F3EFE6?text=Mapa+Planaltina+GO')"></div>
-                        <div class="relative z-10 bg-cerrado-900/90 text-cerrado-50 p-6 rounded-xl border border-sunset-gold/30 max-w-sm space-y-3">
-                            <i class="fa-solid fa-map-location-dot text-sunset-gold text-3xl"></i>
-                            <h4 class="font-serif font-bold text-lg">Chácara Brisa do Cerrado</h4>
-                            <p class="text-xs text-cerrado-200">Planaltina - GO (15°27'S • 47°36'W)</p>
-                            <a href="https://maps.google.com/?q=Planaltina+GO" target="_blank" class="inline-block bg-sunset-gold text-cerrado-900 font-semibold px-4 py-2 rounded-lg text-xs hover:bg-sunset-light transition-colors">
-                                Abrir no Google Maps
-                            </a>
-                        </div>
+                    <!-- Mapa Interativo -->
+                    <div class="rounded-2xl overflow-hidden border border-cerrado-300 shadow-md h-64 bg-cerrado-200 relative flex items-center justify-center text-center">
+                        <iframe src="https://maps.google.com/maps?q=-15.45,-47.60&hl=pt-BR&z=14&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
@@ -490,12 +555,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div class="space-y-1">
                 <span class="font-serif text-lg font-bold text-sunset-light">Chácara Brisa do Cerrado</span>
-                <p class="text-xs text-cerrado-400">Onde o tempo desacelera. Planaltina, GO.</p>
+                <p class="text-xs text-cerrado-400">Lugar onde o tempo desacelera. Planaltina, GO.</p>
             </div>
-            <div class="flex items-center space-x-6 text-sm">
+            <div class="flex flex-wrap justify-center items-center gap-6 text-sm">
                 <a href="#sobre" class="hover:text-sunset-gold transition-colors">Sobre</a>
                 <a href="#estrutura" class="hover:text-sunset-gold transition-colors">Estrutura</a>
                 <a href="#valores" class="hover:text-sunset-gold transition-colors">Valores</a>
+                <a href="#regras" class="hover:text-sunset-gold transition-colors">Regras</a>
                 <a href="#contato" class="hover:text-sunset-gold transition-colors">Contato</a>
             </div>
             <div class="text-xs text-cerrado-400">
@@ -531,7 +597,7 @@
             }
         });
 
-        // Função Toast customizada (sem alert)
+        // Função Toast customizada
         function showToast(title, message) {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-msg');
